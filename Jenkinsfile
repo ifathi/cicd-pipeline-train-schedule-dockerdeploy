@@ -27,7 +27,7 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dokcerhub_login') {
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
@@ -49,7 +49,7 @@ pipeline {
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
-                        "docker run --restart always --name train-schedule -p 8080:8080 -d ifathi7/train-schedule:${env.BUILD_NUMBER}"
+                        "docker run --restart always --name train-schedule -p 8181:8080 -d ifathi7/train-schedule:${env.BUILD_NUMBER}"
                     }                
             }
         }
