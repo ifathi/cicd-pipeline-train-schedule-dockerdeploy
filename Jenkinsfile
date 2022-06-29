@@ -42,14 +42,14 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 script {
-                        "docker pull ifathi7/train-schedule:${env.BUILD_NUMBER}\""
+                        "docker pull ifathi7/train-schedule:${env.BUILD_NUMBER}""
                         try {
-                            "docker stop train-schedule\"
-                            "docker rm train-schedule\"
+                            "docker stop train-schedule"
+                            "docker rm train-schedule"
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
-                        "docker run --restart always --name train-schedule -p 8080:8080 -d ifathi7/train-schedule:${env.BUILD_NUMBER}\"
+                        "docker run --restart always --name train-schedule -p 8080:8080 -d ifathi7/train-schedule:${env.BUILD_NUMBER}"
                     }                
             }
         }
