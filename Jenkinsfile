@@ -42,7 +42,7 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 script {
-                        "docker pull ifathi7/train-schedule:${env.BUILD_NUMBER}""
+                        "docker pull ifathi7/train-schedule:${env.BUILD_NUMBER}"
                         try {
                             "docker stop train-schedule"
                             "docker rm train-schedule"
